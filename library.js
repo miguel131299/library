@@ -1,5 +1,8 @@
 let myLibrary = [];
 
+//select elements
+const table = document.getElementById("table");
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -38,4 +41,29 @@ function addBookToLibrary(params) {
     myLibrary.push(book);
 }
 
-addBookToLibrary()
+function printLibraryInfo() {
+    for (const book of myLibrary) {
+        const row = table.insertRow();
+
+        for (const key in book) {
+            if (Object.hasOwnProperty.call(book, key)) {
+
+                if (!isFunction(book[key])) {
+
+                    const cell = row.insertCell();
+                    cell.innerHTML = book[key];
+                }
+            }
+        }
+    }
+}
+
+function isFunction(functionToCheck) {
+    return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+   }
+
+const book1 = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+myLibrary.push(book1);
+
+// addBookToLibrary();
+printLibraryInfo();
