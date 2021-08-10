@@ -28,12 +28,22 @@ header {
 
 .title {
     font-size: 3rem;
-    margin-bottom: 10rem;
+    margin-bottom: 4rem;
 }
 
 #table {
     width: 80%;
     margin: auto;
+    border-collapse: collapse;
 }
 
-#table th
+#table th, #table td {
+    border: 1px solid #000;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+#table th {
+    background-color: rgb(223, 203, 24);
+}
+

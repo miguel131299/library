@@ -2,6 +2,10 @@ let myLibrary = [];
 
 //select elements
 const table = document.getElementById("table");
+const addButton = document.getElementById("new-book-button");
+
+//add Event Listeners
+addButton.addEventListener("click", addBookToLibrary);
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -55,6 +59,10 @@ function printLibraryInfo() {
                 }
             }
         }
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        row.appendChild(deleteButton);
     }
 }
 
@@ -63,7 +71,10 @@ function isFunction(functionToCheck) {
    }
 
 const book1 = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+const book2 = new Book("Harry Potter", "J.K. Rowling", 456, true);
+
 myLibrary.push(book1);
+myLibrary.push(book2);
 
 // addBookToLibrary();
 printLibraryInfo();
